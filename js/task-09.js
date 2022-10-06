@@ -11,6 +11,10 @@ const colorName = document.querySelector('.color');
 btn.addEventListener('click', onChangeColor);
 
 function onChangeColor(evt) {
+  function getRandomHexColor() {
+    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  }
   bodyEl.style.backgroundColor = getRandomHexColor();
-  colorName.textContent = getRandomHexColor();
+  colorName.textContent = bodyEl.style.backgroundColor;
+  console.log(colorName.textContent);
 }

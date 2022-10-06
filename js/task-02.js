@@ -6,13 +6,14 @@ const ingredients = [
   'Herbs',
   'Condiments',
 ];
+
 const ul = document.querySelector('#ingredients');
-console.log(ul);
 
-const markup = ingredients
-  .map(ingredient => `<li class="item">${ingredient}</li>`)
-  .join('');
+const elements = ingredients.map(ingredient => {
+  const li = document.createElement('li');
+  li.className = 'item';
+  li.textContent = ingredient;
+  return li;
+});
 
-console.log(markup);
-
-ul.insertAdjacentHTML('beforeend', markup);
+ul.append(...elements);
